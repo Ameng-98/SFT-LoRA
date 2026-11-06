@@ -1,0 +1,4 @@
+LoRA_train/output/
+dataset/
+__pycache__/
+*.py[cod]

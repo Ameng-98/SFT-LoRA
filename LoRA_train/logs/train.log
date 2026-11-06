@@ -1,0 +1,81 @@
+============================================================
+qwen-lora-sft | LoRA 监督微调（SFT）
+============================================================
+📄 配置文件: config\finetune_cpu.json
+⚠ 未检测到 GPU，使用 CPU 训练（速度很慢，建议先小样本跑通流程）
+🖥 设备: cpu | 加载精度: float32 | 训练 fp16=False bf16=False
+============================================================
+1/6 加载 tokenizer
+============================================================
+============================================================
+2/6 加载基座模型
+============================================================
+✅ 模型加载成功
+============================================================
+3/6 配置 LoRA
+============================================================
+trainable params: 18,464,768 || all params: 1,562,179,072 || trainable%: 1.1820
+============================================================
+4/6 加载并格式化数据
+============================================================
+📊 训练集: 原始 603 条 → 使用 603 条
+✅ 文本格式化完成: 603 条 → 603 条
+============================================================
+训练配置
+============================================================
+模型路径      : E:\Desktop\wolin\zuoye\week3_day4\test\model\models\Qwen--Qwen2.5-1.5B-Instruct\snapshots\master
+数据路径      : data/train_messages.json（格式=messages）
+输出目录      : output/lora_adapter
+设备/精度     : cpu / float32（fp16=False, bf16=False）
+LoRA          : r=16, alpha=32, dropout=0.1
+LoRA 目标层   : ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj']
+batch 设置    : per_device=1, grad_accum=8, 等效 batch=8
+轮数/步数     : epochs=2, max_steps=-1, 预计约 151 步
+最大序列长度  : 256
+样本数        : train=603
+============================================================
+5/6 构建训练器
+============================================================
+============================================================
+6/6 开始训练
+============================================================
+{'loss': '4.084', 'grad_norm': '2.979', 'learning_rate': '8e-05', 'entropy': '2.559', 'mean_token_accuracy': '0.3009', 'num_tokens': '6683', 'epoch': '0.06633'}
+{'loss': '3.263', 'grad_norm': '1.799', 'learning_rate': '9.982e-05', 'entropy': '3.037', 'mean_token_accuracy': '0.3525', 'num_tokens': '1.334e+04', 'epoch': '0.1327'}
+{'loss': '2.342', 'grad_norm': '1.942', 'learning_rate': '9.908e-05', 'entropy': '2.764', 'mean_token_accuracy': '0.5036', 'num_tokens': '1.998e+04', 'epoch': '0.199'}
+{'loss': '1.441', 'grad_norm': '1.701', 'learning_rate': '9.778e-05', 'entropy': '1.61', 'mean_token_accuracy': '0.6813', 'num_tokens': '2.65e+04', 'epoch': '0.2653'}
+{'loss': '1.152', 'grad_norm': '0.9076', 'learning_rate': '9.593e-05', 'entropy': '1.099', 'mean_token_accuracy': '0.7494', 'num_tokens': '3.317e+04', 'epoch': '0.3317'}
+{'loss': '1.048', 'grad_norm': '0.9637', 'learning_rate': '9.357e-05', 'entropy': '1.043', 'mean_token_accuracy': '0.7643', 'num_tokens': '3.989e+04', 'epoch': '0.398'}
+{'loss': '0.9394', 'grad_norm': '0.9962', 'learning_rate': '9.07e-05', 'entropy': '0.9547', 'mean_token_accuracy': '0.7763', 'num_tokens': '4.658e+04', 'epoch': '0.4643'}
+{'loss': '0.8822', 'grad_norm': '0.94', 'learning_rate': '8.737e-05', 'entropy': '0.9081', 'mean_token_accuracy': '0.7886', 'num_tokens': '5.33e+04', 'epoch': '0.5307'}
+{'loss': '0.83', 'grad_norm': '1', 'learning_rate': '8.362e-05', 'entropy': '0.8485', 'mean_token_accuracy': '0.7987', 'num_tokens': '5.978e+04', 'epoch': '0.597'}
+{'loss': '0.7698', 'grad_norm': '0.894', 'learning_rate': '7.948e-05', 'entropy': '0.7946', 'mean_token_accuracy': '0.8145', 'num_tokens': '6.645e+04', 'epoch': '0.6633'}
+{'loss': '0.7427', 'grad_norm': '0.9999', 'learning_rate': '7.5e-05', 'entropy': '0.7664', 'mean_token_accuracy': '0.8231', 'num_tokens': '7.322e+04', 'epoch': '0.7297'}
+{'loss': '0.6859', 'grad_norm': '1.151', 'learning_rate': '7.024e-05', 'entropy': '0.711', 'mean_token_accuracy': '0.8268', 'num_tokens': '7.994e+04', 'epoch': '0.796'}
+{'loss': '0.6032', 'grad_norm': '1.136', 'learning_rate': '6.525e-05', 'entropy': '0.6388', 'mean_token_accuracy': '0.8496', 'num_tokens': '8.656e+04', 'epoch': '0.8624'}
+{'loss': '0.5173', 'grad_norm': '1.034', 'learning_rate': '6.008e-05', 'entropy': '0.5528', 'mean_token_accuracy': '0.8702', 'num_tokens': '9.326e+04', 'epoch': '0.9287'}
+{'loss': '0.4799', 'grad_norm': '1.504', 'learning_rate': '5.48e-05', 'entropy': '0.5469', 'mean_token_accuracy': '0.8751', 'num_tokens': '9.994e+04', 'epoch': '0.995'}
+{'loss': '0.3819', 'grad_norm': '1.124', 'learning_rate': '4.947e-05', 'entropy': '0.463', 'mean_token_accuracy': '0.9028', 'num_tokens': '1.057e+05', 'epoch': '1.053'}
+{'loss': '0.3889', 'grad_norm': '1.759', 'learning_rate': '4.414e-05', 'entropy': '0.4205', 'mean_token_accuracy': '0.9006', 'num_tokens': '1.124e+05', 'epoch': '1.119'}
+{'loss': '0.3233', 'grad_norm': '1.03', 'learning_rate': '3.887e-05', 'entropy': '0.399', 'mean_token_accuracy': '0.9173', 'num_tokens': '1.191e+05', 'epoch': '1.186'}
+{'loss': '0.2833', 'grad_norm': '1.313', 'learning_rate': '3.374e-05', 'entropy': '0.3754', 'mean_token_accuracy': '0.9291', 'num_tokens': '1.258e+05', 'epoch': '1.252'}
+{'loss': '0.262', 'grad_norm': '0.9435', 'learning_rate': '2.879e-05', 'entropy': '0.3449', 'mean_token_accuracy': '0.9315', 'num_tokens': '1.324e+05', 'epoch': '1.318'}
+{'loss': '0.2907', 'grad_norm': '1.355', 'learning_rate': '2.408e-05', 'entropy': '0.3521', 'mean_token_accuracy': '0.9296', 'num_tokens': '1.391e+05', 'epoch': '1.385'}
+{'loss': '0.2503', 'grad_norm': '1.51', 'learning_rate': '1.967e-05', 'entropy': '0.3253', 'mean_token_accuracy': '0.9381', 'num_tokens': '1.459e+05', 'epoch': '1.451'}
+{'loss': '0.2409', 'grad_norm': '1.585', 'learning_rate': '1.56e-05', 'entropy': '0.3206', 'mean_token_accuracy': '0.9402', 'num_tokens': '1.525e+05', 'epoch': '1.517'}
+{'loss': '0.2231', 'grad_norm': '1.089', 'learning_rate': '1.193e-05', 'entropy': '0.3065', 'mean_token_accuracy': '0.9453', 'num_tokens': '1.591e+05', 'epoch': '1.584'}
+{'loss': '0.2164', 'grad_norm': '1.08', 'learning_rate': '8.688e-06', 'entropy': '0.2972', 'mean_token_accuracy': '0.9487', 'num_tokens': '1.658e+05', 'epoch': '1.65'}
+{'loss': '0.2043', 'grad_norm': '1.041', 'learning_rate': '5.92e-06', 'entropy': '0.2826', 'mean_token_accuracy': '0.9528', 'num_tokens': '1.725e+05', 'epoch': '1.716'}
+{'loss': '0.2135', 'grad_norm': '0.9557', 'learning_rate': '3.654e-06', 'entropy': '0.2806', 'mean_token_accuracy': '0.9505', 'num_tokens': '1.791e+05', 'epoch': '1.783'}
+{'loss': '0.2387', 'grad_norm': '1.232', 'learning_rate': '1.917e-06', 'entropy': '0.29', 'mean_token_accuracy': '0.9444', 'num_tokens': '1.857e+05', 'epoch': '1.849'}
+{'loss': '0.2098', 'grad_norm': '0.9097', 'learning_rate': '7.29e-07', 'entropy': '0.2867', 'mean_token_accuracy': '0.9503', 'num_tokens': '1.924e+05', 'epoch': '1.915'}
+{'loss': '0.2156', 'grad_norm': '1.038', 'learning_rate': '1.027e-07', 'entropy': '0.2877', 'mean_token_accuracy': '0.9496', 'num_tokens': '1.991e+05', 'epoch': '1.982'}
+{'train_runtime': '8133', 'train_samples_per_second': '0.148', 'train_steps_per_second': '0.019', 'train_loss': '0.7837', 'entropy': '0.2826', 'mean_token_accuracy': '0.9444', 'num_tokens': '2.009e+05', 'epoch': '2'}
+✅ 最终 LoRA adapter 已保存: output/lora_adapter
+✅ 训练完成，用时 135.6 分钟，global_step=152
+============================================================
+后续步骤
+============================================================
+1) 快速验证效果：
+   python scripts/infer_lora.py --model "E:\Desktop\wolin\zuoye\week3_day4\test\model\models\Qwen--Qwen2.5-1.5B-Instruct\snapshots\master" --adapter "output/lora_adapter" --prompt "你好，请介绍一下你自己"
+2) 合并成独立模型（部署用）：
+   python scripts/merge_lora.py --base-model "E:\Desktop\wolin\zuoye\week3_day4\test\model\models\Qwen--Qwen2.5-1.5B-Instruct\snapshots\master" --adapter "output/lora_adapter" --output "output/lora_adapter-merged"

@@ -1,0 +1,52 @@
+{
+  "total_records": 603,
+  "empty_instruction": 3,
+  "missing_input": 0,
+  "missing_output": 0,
+  "empty_output": 0,
+  "duplicates": 0,
+  "kept": 603,
+  "system_prompts": {
+    "你是综合数码电商平台的在线客服。请依据输入中提供的商品、订单、物流或平台规则回答。表达礼貌、清晰、自然；信息不足时先询问必要信息；不得编造实时状态、商品参数或政策，不得擅自承诺退款、赔偿、库存或送达时间；涉及账户安全时不得索取密码和验证码。": 600
+  },
+  "categories": {
+    "product": 100,
+    "order": 103,
+    "logistics": 100,
+    "after_sales": 100,
+    "promotion": 100,
+    "complaint": 100
+  },
+  "difficulty": {
+    "easy": 205,
+    "medium": 199,
+    "hard": 199
+  },
+  "user_chars": {
+    "min": 36,
+    "p50": 56,
+    "max": 79,
+    "mean": 56.3
+  },
+  "answer_chars": {
+    "min": 47,
+    "p50": 73,
+    "p95": 92,
+    "max": 109,
+    "mean": 73.8
+  },
+  "tokens": {
+    "count": 603,
+    "min": 146,
+    "p50": 165,
+    "p90": 178,
+    "p95": 183,
+    "p99": 193,
+    "max": 205,
+    "mean": 165.6,
+    "above_384": 0,
+    "above_512": 0
+  },
+  "input": "E:\\Desktop\\wolin\\project_final\\dataset\\ecommerce_customer_service_sft_600.json",
+  "output": "E:\\Desktop\\wolin\\project_final\\LoRA_train\\data\\train_messages.json"
+}
